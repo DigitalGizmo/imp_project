@@ -1,0 +1,22 @@
+// //images for stories and themes, works with _side-panel.scss
+
+.image-panel {
+	// for small displays
+	width: 100%;
+	height: auto;
+
+	//for large displays (works with side-panel):
+	@include media($large-screen) {
+		@include span-columns(8);
+	}
+}
+
+ // basic caption styles are in typography.scss
+ .image-panel--caption {
+ 	color: $light-font-color;
+
+ 	//for large displays:
+  @include media($large-screen) {	
+   	padding: null $base-spacing; 
+ 	}
+}

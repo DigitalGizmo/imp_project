@@ -1,0 +1,104 @@
+html {
+  background-color: $base-background-color;
+}
+
+body {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font-family;
+  font-size: $base-font-size;
+  font-weight: normal;
+  line-height: $heading-line-height;
+  margin: 0 0 $small-spacing 0;
+}
+
+//main titles on menu pages, story intro pages
+.main-title, .story-title, .story-subtitle {
+  font-style: italic;
+  margin-bottom: $tiny-spacing;
+}
+
+.main-title {
+  font-size: $title-font-size;
+  color: $accent-color;
+}
+
+.subtitle {
+  font-size: $medlarge-font-size;
+  color: $accent-color;
+}
+
+.story-title {
+  font-size: $large-font-size;
+  color: $light-font-color;
+}
+
+.story-subtitle {
+  font-size: $medlarge-font-size;
+  color: $light-font-color;
+}
+
+.heading {
+  font-variant: small-caps;
+  letter-spacing: .05em;
+}
+
+.caption, .image-panel--caption, {
+  font-family: $utility-font-family;
+  font-size: $small-font-size;
+  padding: $small-spacing;
+}
+
+.prompt {
+  font-family: $utility-font-family;
+  font-size: $small-font-size;
+  margin-top: -$small-spacing;
+}
+
+.accent {
+  color: $accent-color;
+}
+
+p {
+  margin: 0 0 $small-spacing;
+}
+
+a {
+  color: $action-color;
+  text-decoration: none;
+  transition: color $base-duration $base-timing;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: shade($action-color, 25%);
+  }
+}
+
+hr {
+  border-bottom: $base-border;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: $base-spacing 0;
+}
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+}
+
+blockquote {
+  font-style: italic;
+}

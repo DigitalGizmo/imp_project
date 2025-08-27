@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Impressions - Theme: {{object.title }} {% endblock %}
+
+{% block wrapper_class %}"content-wrapper"{% endblock wrapper_class %}
+
+{% block content_area %}
+
+  <header id="top">
+
+    <h1 class="main-title">{{ object.title|safe }}</h1> 
+    <h2 class="subtitle">{{ object.subtitle|safe }}</h2> 
+    <h4 class="byline">By {{ object.author|safe }}</h4> 
+
+  </header>
+
+  <section class="chapter">
+
+    <div class="chapter-image">
+
+      <img src="{{ MEDIA_URL }}themes/fullpics/{{ object.slug }}.jpg" alt="image illustating theme essay">
+
+      <p class="caption">{{ object.caption|safe }} Image courtesy of {{ object.source.institution|safe }}.</p>
+
+    </div><!--/chapter-image -->
+
+    {{ object.narrative|safe }}
+
+  </section><!--/chapter -->
+  
+  <section class="dig-deeper">
+    
+    <h2>Dig Deeper</h2>
+
+    <ul class="dig-deeper-list">
+
+      {% for person in object.people.all %}
+
+        <li>
+          <a class="pop_item" href="{% url 'supporting:person_detail' person.slug %}">
+          <img class="oval" src="{{ MEDIA_URL }}supporting/person/menupics/{{ person.slug }}.jpg" alt="image of {{ person.slug}}">
+            {{ person.first_name|safe }} {{ person.middle_name|safe }} {{ person.last_name|safe }}
+          </a>
+        </li>
+      {% endfor %}
+
+      {% for evidenceitem in object.evidence.all %}
+        <li>
+          <a class="pop_item"  href="{% url 'supporting:'|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">
+          <img src="{{ MEDIA_URL }}supporting/evidenceitem/menupics/{{ evidenceitem.slug }}.jpg" alt="image of {{ evidenceitem.slug }}">
+            {{ evidenceitem.title }}
+          </a>
+        </li>
+      {% endfor %}
+
+      {% for context in object.contexts.all %}
+        <li>
+          <a class="pop_item" href="{% url 'supporting:context_detail' context.slug %}">
+          <img src="{{ MEDIA_URL }}supporting/context/menupics/{{ context.slug }}.jpg" alt="image of {{ context.slug }}">
+            {{ context.title }}
+          </a>
+        </li>
+      {% endfor %}
+      
+      {% for feature in object.featured_specials.all %}
+        <li>
+          <a class="pop_item" href="{% url 'special:'|add:feature.special_type|add:'_detail' feature.slug %}">
+          <img src="{{ MEDIA_URL }}special/menupics/{{ feature.slug }}.jpg" alt="image of {{ feature.slug }}">
+            {{ feature.title }}
+          </a>
+        </li>
+      {% endfor %}
+      
+      </ul>
+
+  </section><!--/dig-deeper -->
+      
+  <p class="prompt"><a href="#top">top of page</a></p>
+
+{% endblock content_area %}

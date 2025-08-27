@@ -1,0 +1,77 @@
+// For ancillary text pages
+.text-page {
+	// for small displays
+	width: 100%;
+	height: auto;
+
+	//for large displays (works with side-panel):
+	padding: $base-spacing $large-spacing $large-spacing $base-spacing;
+
+	@include media($large-screen) {
+		@include span-columns(8);
+	}
+
+	article {
+		border-bottom: $base-border;
+		margin-bottom: $large-spacing;
+	}
+
+	ul li {
+		padding-bottom: $small-spacing;
+	}
+
+	p.prompt { 
+		margin-top: $small-spacing; 
+	}
+}
+
+.intra-page-nav li {
+	padding-bottom: $base-spacing;
+}
+
+.lesson-list {
+	ol {
+		list-style-type: decimal;
+
+		li {
+			padding-bottom: $base-spacing;
+
+			a {
+				display: block;
+			}
+		}
+	}
+}
+
+.funder-logos {
+	display: table;
+	margin: $base-spacing 0;
+
+	li {
+		display: inline;
+		@include span-columns(2.5 of 8);
+
+		img {
+			border: $base-border;
+		}
+	}
+}
+
+article#credits {
+	h2.heading {
+		margin-top: $base-spacing;
+	}
+}
+
+.about-list {
+	padding-left: $large-spacing;
+	//margin-bottom: $large-spacing;
+}
+
+div.error-msg {
+	margin: $xlarge-spacing 0;
+
+	p {
+		font-size: $large-font-size;
+	}
+}

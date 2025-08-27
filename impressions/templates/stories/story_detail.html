@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Impressions - Story: {{object.title }} {% endblock %}
+
+
+{% block wrapper_class %}"content-wrapper--intro"{% endblock wrapper_class %}
+
+{% block content_area %}
+
+  <section class="image-panel">
+
+    <img src="{{ MEDIA_URL }}stories/{{ object.slug }}/{{ object.image_name }}.jpg" alt="story illustration by Monica Vachula">
+    <p class="image-panel--caption">
+      {{ object.caption|safe }}
+      {% if object.source.id != 1 %}
+        Image courtesy of {{ object.source.institution|safe }}.
+      {% endif %}
+    </p>
+
+  </section><!--/image-panel-->
+
+  <article class="text-panel">
+    
+    <ul class="intro-nav">
+
+      <li class="previous">
+        {% if object.get_prev %}
+          <a href="{% url 'stories:story_detail' object.get_prev.slug %}">&lArr;&nbsp;Previous <em>{{object.get_prev.title|safe}}</em></a>     
+        {% else %}
+          <span class="end-of-the-line">&lArr; Previous</span>
+        {% endif %}
+      </li>
+
+      <li class="read-this">
+        <a href="{% url 'stories:chapter_detail' object.slug 1 %}">
+          Read This Story
+          <img src="{% static 'images/' %}pointing-hand-down.png" alt="pointing hand icon">
+        </a>
+      </li>
+
+      <li class="next">
+
+        {% if object.get_next %}
+          <a href="{% url 'stories:story_detail' object.get_next.slug %}">Next&nbsp;&rArr; <em>{{object.get_next.title|safe}}</em></a>     
+        {% else %}
+          <span class="end-of-the-line">Next Story &rArr;</span>
+        {% endif %}
+
+      </li>
+
+    </ul>
+
+    <h1 class="story-title">{{ object.title|safe }}</h1>
+    
+    <h2 class="story-subtitle">{{ object.subtitle|safe }}</h2>  
+
+    {{ object.introduction|safe }}
+
+    <p class="story-prompt"><a href="{% url 'stories:chapter_detail' object.slug 1 %}">Read this story&hellip;</a></p>
+
+  </article>
+
+
+
+  <!-- Chapter layout has another div here - deeper table-cell -->
+{% endblock content_area %}
+
+

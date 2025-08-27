@@ -1,0 +1,130 @@
+// Slim Pops
+
+#slimpop-wrapper {
+  background-color: $base-background-color;
+  border: $base-border;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75);
+  overflow: auto;
+  padding: 3px;
+  
+  @media print {
+    background-color: white;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.slim-border {
+  border: 1px solid $base-border-color;
+  overflow: auto;
+  padding: $base-spacing $small-spacing $base-spacing $small-spacing;
+
+  // large displays, greater than or equal to 880em - 8 cols
+  @include media($medium-screen) {
+    padding: $base-spacing $large-spacing $large-spacing $large-spacing;
+  }
+
+  @media print {
+    border: none;
+  }
+}
+
+.slimpop-close {/* for the close link */
+  float: right;
+ 
+  @media print {
+    display: none;
+  }
+}
+
+//for images in slims
+.double-border {
+  border: $double-border;
+}
+
+.slim-title {
+  color: $accent-color;
+  font-size: $medlarge-font-size;
+  margin-bottom: $base-spacing;
+}
+
+.slim-subhead {
+  color: $accent-color;
+  margin: 0 0 $tiny-spacing 0;
+}
+
+.slim-caption {
+  color: $light-taupe;
+}
+
+.slim-date {
+  color: $accent-color;
+  margin-top: -1.5em;
+}
+
+.slim-deeper {
+  color: $accent-color;
+  margin-top: $small-spacing;
+  padding-top: $tiny-spacing;
+
+  ul li {
+    margin-bottom: $small-spacing;
+  }
+}
+
+#slimpop-overlay {
+  background: url(../images/overlay.png) repeat;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 99;
+}
+
+/* JavaScript assigns this (or .hidden) to slimpop-container */
+.slimpop-basic {
+  bottom: 0;
+  display: block;
+  left: 0;
+  margin: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed; /* this positions the slimpop relative to viewport, it won't scroll with the page */
+  right: 0;
+  top: 0;
+  z-index: 100;
+
+  @media print {
+    overflow: visible;
+    position: absolute;
+    top: 0;
+  }
+}
+
+.person, .context, .fastfact {
+  max-height: 85%;
+  width: 600px;
+}
+
+.artifact, .document, .about, .video {
+  max-height: 85%;
+  width: 75%;
+}
+
+.society {
+  max-height: 85%;
+  width: 60%;
+}
+
+.voices {
+  max-height: 85%;
+  width: 50vw;
+}
+
+.slideshow, .footprint,
+.then, .looking, .explore, .discoverers, .intro {
+  max-width: 85%;
+  max-height: 85%;
+}

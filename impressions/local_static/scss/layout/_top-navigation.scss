@@ -1,0 +1,227 @@
+// top navigation (based on refills Centered Navigation example) //
+.top-navigation {
+  background-color: $top-nav-background-color;
+  border-bottom: 1px solid darken($top-nav-background-color, 9%);
+  min-height: $top-navigation-height;
+}
+
+// Mobile view
+.mobile-logo {
+  display: inline;
+  float: left;
+  padding-left: $top-navigation-padding;
+
+  img {
+    max-height: $top-navigation-height;
+    padding: .25em 0;
+  }
+
+  @include media($large-screen) {
+    display: none;
+  }
+}
+
+// the MENU link that displays at mobile sizes
+.top-navigation-mobile-menu {
+  color: $top-navigation-color;
+  display: block;
+  float: right;
+  line-height: $top-navigation-height;
+  margin: 0;
+  padding-right: $top-navigation-submenu-padding;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  // don't show at large screen sizes
+  @include media ($large-screen) {
+    display: none;
+  }
+
+  &:focus,
+  &:hover {
+    color: $top-navigation-color-hover;
+  }
+}
+
+// Primary Nav Menu
+ul.top-navigation-menu {
+  // for mobile
+  -webkit-transform-style: preserve-3d; // stop webkit flicker
+  clear: both;
+  display: none;
+
+  li img {
+    display: none;
+  }
+
+  @include media ($large-screen) {
+    display: block;
+    text-align: center;
+    
+    li img {
+      display: inline-block;
+      width: 30px;
+      height: auto;
+    }
+  }
+}
+
+// Primary Nav Menu Links
+ul.top-navigation-menu li {
+  //background: $top-nav-background-color;
+  display: block;
+  font-size: $base-font-size * 1.25;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  line-height: $top-navigation-height;
+  overflow: hidden;
+  padding-right: $top-navigation-submenu-padding;
+  text-align: right;
+  width: 100%;
+
+  a {
+    color: $top-navigation-color;
+    display: inline-block;
+    outline: none;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: $top-navigation-color-hover;
+    }
+  }
+
+  @include media($large-screen) {
+    display: inline;
+    line-height: $top-navigation-height;
+
+    a {
+      padding-right: $top-navigation-padding;
+    }
+  }
+}
+
+//  Primary Nav Menu Link for Dropdowns
+li.more {
+  padding-right: 0;
+  position: relative;
+
+  @include media($large-screen) {
+    padding-right: $top-navigation-submenu-padding * 2;
+  }
+
+  > a:after {
+    color: $top-navigation-color;
+    //small down pointing triangle
+    content: "\25BE";
+    padding-left: .25em;
+  }
+
+  & > ul.submenu {
+    z-index: 9999 !important;
+  }
+
+  @include media($large-screen) {
+    padding-right: $top-navigation-submenu-padding;
+    position: relative;
+  }
+}
+
+// Secondary Nav Menu
+ul.secondary-navigation-menu {
+  // for mobile
+  border-top: 1px solid $light-taupe;
+  -webkit-transform-style: preserve-3d; // stop webkit flicker
+  clear: both;
+  display: none;
+  font-size: $small-font-size;
+  margin: 0 auto;
+  overflow: visible;
+  padding: 0;
+  position: relative;
+  width: 100%;
+
+  @include media ($large-screen) {
+    display: inline-block;
+    text-align: center;
+  }
+}
+
+// Secondary Nav Menu Links
+ul.secondary-navigation-menu li {
+  background-color: $top-nav-background-color;
+  display: block;
+  font-size: $base-font-size;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  line-height: $top-navigation-height;
+  padding-right: $top-navigation-submenu-padding;
+  position: relative;
+  text-align: right;
+  width: 100%;
+  z-index: 1 !important;
+
+  a {
+    color: $top-navigation-color;
+    display: inline-block;
+    outline: none;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: $top-navigation-color-hover;
+    }
+  }
+
+  @include media($large-screen) {
+    display: inline;
+    line-height: $top-navigation-height;
+
+    a {
+      padding-right: $top-navigation-item-padding;
+    }
+  }
+}
+
+ul.submenu {
+  background: $top-nav-background-color;
+  border-bottom: $base-border;
+  display: none;
+  padding-left: 0;
+  
+  @include media($large-screen) {
+    box-shadow: $drop-shadow;
+    left: 0;
+    position: absolute;
+    top: 32px;
+  }
+
+  li {
+    display: block;
+    font-size: $smallish-font-size;
+    font-variant: normal;
+    letter-spacing: normal;
+    padding-right: 0;
+
+    @include media($large-screen) {
+      line-height: $heading-line-height;
+
+      &:last-child > a {
+        padding-bottom: .7em;
+      }
+    }
+
+    a {
+      border-top: $base-border;
+      text-align: right;
+      text-decoration: none;
+      width: 100%;
+
+      @include media($large-screen) {
+        padding: .75em 1em;
+        text-align: left;
+        width: $top-navigation-submenu-width;
+      }
+    }
+  }
+}

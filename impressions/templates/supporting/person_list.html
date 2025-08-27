@@ -1,0 +1,58 @@
+{% extends "base_list.html" %}
+{% load static image_extras %}
+
+{% block title %}Impressions - People {% endblock %}
+
+{% block wrapper_class %}"content-wrapper menus"{% endblock wrapper_class %}
+
+{% block content_area %}
+
+  <h1 class="main-title">People</h1>
+
+  <p>Biographies of the five people who are central to our story.<br>Also short biographies of other people whose lives and contributions intersected with the discovery of the tracks.</p>
+
+  <ul class="people-primary">
+
+  {% for person2 in object_list.0.primary_person_list %}
+
+    <li>
+      <a class="pop_item" href="{% url 'supporting:person_detail' person2.slug %}">
+        <img src="{{ MEDIA_URL }}supporting/person/menupics/{{ person2.slug }}.jpg" class="oval" alt="image of {{ person2.slug}}" >
+        <span class="heading">{{ person2.title_prefix|safe }} {{ person2.first_name|safe }} 
+        {{ person2.middle_name|safe }} {{ person2.last_name|safe }} {{ person2.suffix|safe }}</span>
+      </a>
+    </li>
+
+  {% endfor %}
+  </ul>
+
+  <h3 class="heading accent">People Important to the Story</h3>
+
+  <ul class="people-secondary">
+  {% for person1 in object_list.0.secondary_person_list %}
+
+    <li>
+    	<a class="pop_item" href="{% url 'supporting:person_detail' person1.slug %}">
+        <img src="{{ MEDIA_URL }}supporting/person/menupics/{{ person1.slug }}.jpg" class="oval" alt="image of {{ person1.slug}}"> 
+    		<em>{{ person1.title_prefix|safe }} {{ person1.first_name|safe }} 
+        {{ person1.middle_name|safe }} {{ person1.last_name|safe }} {{ person1.suffix|safe }}</em>
+      </a>
+    </li>
+
+  {% endfor %}
+
+  </ul>   
+
+  <h3 class="heading accent">People Related to the Story</h3>
+
+  <ul class="menu-grid people-tertiary">
+  {% for person0 in object_list.0.minor_person_list %}
+
+    <li><a class="pop_item" href="{% url 'supporting:person_detail' person0.slug %}">{{ person0.title_prefix|safe }} {{ person0.first_name|safe }} 
+        {{ person0.middle_name|safe }} {{ person0.last_name|safe }} {{ person0.suffix|safe }}</a></li>
+
+  {% endfor %}
+  </ul>
+
+
+{% endblock content_area %}

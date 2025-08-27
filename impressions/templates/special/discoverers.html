@@ -1,0 +1,19 @@
+{% extends extend_base %}
+{% load static %}
+
+{# This is a placeholder - in case we want to make a shell to display Disoverers stand-alone #}
+
+{% block heading %}{{ object.content_type.plural_title }} - Discoverers intro {% endblock %}
+{% block item_title %}{{ object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+
+<section class="chapter">
+	<div class="chapter-image">
+
+		{% include "special/discoverers_includes/_whose-discovery-3.html" %}
+	
+	</div><!-- /video-content -->
+</section>
+
+{% endblock slim_content %}

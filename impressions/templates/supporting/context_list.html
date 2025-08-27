@@ -1,0 +1,54 @@
+{% extends "base_list.html" %}
+{% load static image_extras %}
+
+{% block title %}Impressions - Backdrops {% endblock %}
+
+{% block wrapper_class %}"content-wrapper--full"{% endblock wrapper_class %}
+
+{% block content_area %}
+
+<section class="control-panel">
+  <form action="{% url 'supporting:context_list' %}" method="GET" id="search-form" name="menu">
+    {# csrf_token #} 
+    {# JS for item selection will change method to post (and will change action) #}
+    <input type="hidden" name="page" value="{{ page_number }}"/>
+
+    <h1 class="main-title">Backdrops</h1>
+
+    <h2>Showing: {{ result_count }} items</h2>
+    <h4 class="heading">Narrow by Topic</h4>
+
+    {{ form.topics }}
+
+    <h4 class="heading">Search by Keyword</h4>
+
+    <input type="search" name="q" value="{{ form.q.value }}" id="id_q" 
+      placeholder="Search" class="search-field"/>
+
+    <input type="submit" value="Go" />
+    <span id="clear"><a href="#">clear search</a></span>
+  </form>
+</section> 
+
+<section class="menu-grid--area">
+
+  <ul class="menu-grid squares">
+  {% for object in object_list %}
+
+    <li>
+      <a class="pop_item" href="{% url 'supporting:context_detail' object.slug %}">
+        <!-- <img src="{% static 'supporting/context/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}"> -->
+
+        <img src="{{ MEDIA_URL }}supporting/context/menupics/{{ object.slug }}.jpg"  alt="image of {{ object.slug}}"> 
+        
+        {{ object.title|safe }} 
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+
+  {% include 'supporting/_list_pagination.html' %}
+
+</section>
+
+{% endblock content_area %}

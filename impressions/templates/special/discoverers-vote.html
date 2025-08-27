@@ -1,0 +1,41 @@
+{% extends extend_base %}
+{% load static %}
+
+{% block heading %}Your Vote{% endblock %}
+{% block item_title %}You cast your vote for {{ votee_object.caption|safe }}! {% endblock %}
+
+{% block slim_content%}
+
+<section class="vote-feedback">
+
+  <h3>Here's how other visitors to this website have voted:</h3>
+
+  <ul>
+  {% for slide in object.frame_set.all %}
+    <li>
+      {{slide.num_correct}} visitor votes -
+      {% if slide.slide_num == votee_object.slide_num %}
+        <span class="accent">{{slide.caption}}</span> (Your vote)
+      {% else %}
+        {{slide.caption}}
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+
+
+  <h3>Your vote makes sense because&hellip;</h3>
+  <p>{{ votee_object.narrative|safe }}</p>
+
+  <h3>But other votes could make sense because&hellip;</h3>
+
+	{% for slide in object.frame_set.all %}
+		{% if slide.slide_num != votee_object.slide_num %}
+			<p><span class="heading">{{slide.caption}}</span><br/>
+			{{slide.narrative|safe}}</p>
+		{% endif %}
+	{% endfor %}
+	
+</section>
+
+{% endblock slim_content %}

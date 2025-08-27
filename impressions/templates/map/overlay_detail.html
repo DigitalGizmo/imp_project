@@ -1,0 +1,17 @@
+{% extends extend_base %}
+{% load static %}
+{# info about map layer, appears in slimpop #}
+
+{% block heading %}
+	Map Info
+{% endblock %}
+
+{% block item_title %}{{ object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+
+	<img class="map-image" src="{% static 'map/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}">
+
+{{ object.map_blurb|safe }}
+
+{% endblock slim_content %}

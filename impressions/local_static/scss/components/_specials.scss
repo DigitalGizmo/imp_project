@@ -1,0 +1,122 @@
+// Special Features General and Miscellaneous
+
+// Navigation
+.activities-controls {
+  margin-bottom: $base-spacing;
+
+  li {
+    color: $accent-color;
+    font-variant: small-caps;
+    margin: $small-spacing 0;
+  
+    &#feedback {
+      font-style: italic;
+      font-variant: normal;
+    }
+
+    span.no-more {
+      color: $medium-gray;
+    }
+  }
+}
+
+// Slideshows
+.slideshow-col {
+  //for large displays:
+  @include media($large-screen) { 
+    float: left;
+    margin-right: $base-spacing;
+    width: 60%;
+  }
+}
+
+#slideshow-image {
+  img {
+    max-height: 600px;
+  }
+}
+
+// Interactives
+.activity-col {
+  @include span-columns (9);
+}
+
+.activity-controls-col {
+  @include span-columns (3);
+}
+
+.activities-controls label {
+	display: inline;
+}
+
+// SVG fix for IE
+.svg-container-then-sugarloaf, 
+.svg-container-then-turners-falls-dam, 
+.svg-container-then-da-mem-hall, 
+.svg-container-then-fossil-exhibit, 
+.svg-container-footprint,
+.svg-container-explore  {
+  position: relative;
+}
+
+.svg-container-then-sugarloaf {
+  padding-top: 56.5%;
+}
+
+.svg-container-then-turners-falls-dam {
+  padding-top: 44.5%;
+}
+
+.svg-container-then-da-mem-hall {
+  padding-top: 53%;
+}
+
+.svg-container-then-fossil-exhibit {
+  padding-top: 79.8%;
+}
+
+.svg-container-footprint {
+  padding-top: 75%;
+}
+      
+.svg-container-explore {
+  padding-top: 43%;
+}
+
+svg.iefix-special {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+// Video
+#video-content {
+	position: relative;
+  padding-top: 56.25%;
+
+  video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+// Literary Society
+.society-question {
+	font-size: $medlarge-font-size;
+	font-style: italic;
+}
+
+.society-choice {
+  font-size: $small-font-size;
+  margin-right: $tiny-spacing;
+}
+
+.slide-number {
+  float: left;
+  margin-right: $small-spacing;
+}

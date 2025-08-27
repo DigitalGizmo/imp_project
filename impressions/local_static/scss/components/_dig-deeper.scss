@@ -1,0 +1,49 @@
+//Dig Deeper Gallery
+
+.dig-deeper {
+	clear: left;
+	overflow: auto;
+
+	h2 {
+		color: $action-color;
+		font-size: $base-font-size * 1.5;
+		letter-spacing: 0.25em;
+		text-transform: uppercase;
+	}
+}
+
+ul.dig-deeper-list {
+
+	img {
+		border: $double-border;
+		display: block;
+		max-width: 100%;
+		padding: 2px;
+	}
+
+	li {
+		padding: $small-spacing $base-spacing $base-spacing 0;
+		text-align: center;
+		
+	// phone-portrait displays, less than or equal to 340em - 3 cols
+		@include media(max-width $very-small-screen) {
+			@include span-columns(4);
+			@include omega(3n);
+			font-size: $small-font-size;
+		}
+
+		// small displays, greater than or equal to 341em but less than or equal to 879em - 4 cols
+		@include media(min-width $very-small-screen +em(1) max-width $small-screen) {
+			@include span-columns(3);
+			@include omega(4n);
+			font-size: $smallish-font-size;
+		}
+
+		// large displays, greater than or equal to 880em - 5 cols
+	  @include media($large-screen) {
+		  @include span-columns(2.4);
+		  @include omega(5n);
+			font-size: $smallish-font-size;
+		}
+	}
+}

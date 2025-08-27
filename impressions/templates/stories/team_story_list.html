@@ -1,0 +1,21 @@
+{% extends "base_team.html" %}
+{% load static %}
+
+{% block content_area %}
+  <p><a href="{% url 'core:team_home' %}">Return to Team Home</a></p>
+  <h1>Stories - Dig Deepers per Chapter</h1>
+    
+  <ul>
+  {% for object in object_list %}
+    <li>
+      <a href="{% url 'stories:team_story_detail' object.slug %}">
+        <img src="{% static 'stories/menupics/' %}{{ object.slug }}.jpg">
+        <h2>{{ object.title|safe }}</h2>
+      </a>
+    </li>
+  {% endfor %}
+  </ul>  
+
+
+{% endblock content_area %}
+

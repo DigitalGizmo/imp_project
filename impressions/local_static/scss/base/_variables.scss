@@ -1,0 +1,91 @@
+// Breakpoints
+$medium-screen: em(640) !default;
+$very-small-screen: em(420) !default;
+$small-screen: em(879) !default;
+$large-screen: em(880) !default;
+
+// Typography
+$base-font-family: $libre-baskerville;
+$heading-font-family: $base-font-family;
+$utility-font-family: $lucida-grande;
+$italic-letter-spacing: 0.05em;
+
+// Font Sizes
+$base-font-size: 1em;
+$smallish-font-size: 0.9em;
+$small-font-size: 0.8em;
+$medlarge-font-size: 1.25em;
+$large-font-size: 1.75em;
+$title-font-size: 2.25em;
+
+// Line height
+$base-line-height: 1.6;
+$heading-line-height: 1.2;
+
+// Spacing
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$tiny-spacing: $base-spacing / 4;
+$large-spacing: $base-spacing * 2;
+$xlarge-spacing: $base-spacing * 4;
+
+// Colors
+$blue: #1565c0;
+$dark-gray: #7d7664 !default;
+$medium-gray: #999;
+$light-gray: #ddd;
+$light-taupe: #b3aa98;
+$dark-taupe: #65605a;
+$transparent-dark-taupe: transparentize($dark-taupe, 0.2);
+
+// Font Colors
+$base-font-color: $dark-gray !default;
+$light-font-color: #fff4e4;
+$accent-color: #b12b00;
+$action-color: $accent-color;
+$hover-color: #d94a38;
+$footer-color: $light-font-color;
+$footer-link-color: transparentize($footer-color, 0.3);
+$footer-disclaimer-color: transparentize($footer-color, 0.6);
+
+// Background Colors
+$base-background-color: $light-font-color;
+$secondary-background-color: tint($light-taupe, 75%);
+$panel-background-color: $dark-taupe;
+$panel-darken-color: darken($dark-taupe, 3%);
+$top-nav-background-color: #d2cdba;
+$footer-background-color: $dark-taupe;
+
+// Borders
+$base-border-color: $light-taupe;
+$base-border: 1px solid $base-border-color;
+$double-border: double $base-border-color;
+
+// Radii & Misc
+$base-border-radius: 3px !default;
+$base-z-index: 0;
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+//shadows
+$title-shadow: 1px 1px 2px black;
+$drop-shadow: 5px 5px 8px rgba(0, 0, 0, 0.65);
+
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;
+
+// Navigation
+$top-navigation-padding: 1em;
+$top-navigation-logo-height: 2em;
+$top-navigation-color: transparentize($base-font-color, 0.3);
+$top-navigation-color-hover: $base-font-color;
+$top-navigation-height: 40px;
+$top-navigation-item-padding: 1.5em;
+$top-navigation-submenu-padding: 1em;
+$top-navigation-submenu-width: 20em;
+$top-navigation-item-nudge: 2.2em;
+$bottom-navigation-height: 80px;
+$top-plus-bottom: $top-navigation-height + $bottom-navigation-height;

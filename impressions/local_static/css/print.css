@@ -1,0 +1,49 @@
+/* Print Styles  */
+
+/* make the text black  */
+section.image-panel p,
+article.text-panel h1.story-title,
+article.text-panel h2.story-subtitle,
+article.text-panel p,
+section.chapter p, 
+section.chapter p a, 
+header h4.heading a, 
+header h2.main-title,
+section.dig-deeper h2,
+section.dig-deeper ul li a,
+h1.main-title,
+h2.subtitle,
+h4.byline,
+h3.heading,
+ul.menu-grid li a,
+section.control-panel,
+input#id_q,
+span#clear a,
+section.six-across h3.subtitle,
+section.six-across ul.menu-gallery li a,
+#slimpop-wrapper h1, 
+#slimpop-wrapper h2.heading, 
+#slimpop-wrapper h4, 
+#slimpop-wrapper p,
+#slimpop-wrapper ul li a { 
+  background: #fff;
+	color: #000 !important;
+ }
+
+footer ul, header.top-navigation  { 
+	display: none;
+}
+
+footer p.caption em, footer p.caption a, footer p.caption {
+	color: #000;
+	font-family: 'Libre Baskerville', serif;	
+	font-size: 12pt;
+}
+
+#slimpop-wrapper img {
+	max-height: 50% !important;
+}
+      
+.intro-nav, .chapter-nav, nav#paging {
+	display: none;
+}

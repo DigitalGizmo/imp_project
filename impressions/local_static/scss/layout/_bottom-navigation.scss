@@ -1,0 +1,74 @@
+// bottom navigation
+.footer {
+  background: $footer-background-color;
+  border-top: 1px solid $panel-darken-color;
+  color: $footer-link-color;
+  overflow: auto;
+  padding: $small-spacing;
+  text-align: center;
+  width: 100%; 
+// if viewport is larger than 880em, make more space at bottom
+  @include media($large-screen) {
+    padding-bottom: $large-spacing;
+  }
+
+  p a {
+    color: $footer-link-color;
+    margin-top: $base-spacing;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: transparentize($footer-color, 0);
+    }
+  }
+
+  @media print {
+    img {display:none;}
+  }
+}
+
+.footer-primary {
+  li {
+    display: inline;
+    padding-right: $base-spacing;
+  }
+
+  li a {
+    color: $footer-link-color;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: transparentize($footer-color, 0);
+    }
+  }
+}
+
+// added 10/15/18 for aaslh award notice
+.footer-logos {
+  margin: $base-spacing auto;
+  width: 60%;
+
+  img {
+    margin-right: $tiny-spacing;
+    max-width: 94px;
+    max-height: auto;  
+  }
+}
+
+.pvma-logo {
+  //for large displays:
+  @include media($large-screen) { 
+    float: left;
+    width: 50%;
+  }
+}
+
+.award {
+  //for large displays:
+  @include media($large-screen) { 
+    float: right;
+    width: 50%;
+  }
+}

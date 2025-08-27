@@ -1,0 +1,27 @@
+{% extends extend_base %}
+{% load static image_extras  %}
+
+{% block heading %}{{ object.content_type.plural_title }} {% endblock %}
+
+{% block item_title %}
+	{{ object.title_prefix|safe }} {{ object.first_name|safe }} 
+		{{ object.middle_name|safe }} {{ object.last_name|safe }} {{ object.suffix|safe }}
+	<h4 class="slim-date">{{ object.birth_year }} - {{ object.death_year }}</h4>
+{% endblock item_title%}
+
+{% block slim_content%}
+
+	{% if object.has_image %}
+		<img src="{{ MEDIA_URL }}supporting/person/fullpics/{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="oval">
+		<p class="caption slim-caption">{{ object.caption }} Image courtesy of {{ object.source.institution|safe }}.</p>
+	{% endif %}
+
+	{% if object.status_num == 2 %}
+		<p><em>[This drafted material has not been reviewed and may contain errors, which will be corrected during review.]</em></p>
+	{% endif %}
+
+	{{ object.narrative|safe }}
+
+	{% include "supporting/_slim_deeper.html" %}
+
+{% endblock slim_content %}

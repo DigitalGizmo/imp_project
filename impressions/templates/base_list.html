@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ object_list.0.content_type.plural_title }}{% endblock %}
+
+{% block title_area %}
+  Menu title: 
+{% endblock title_area %}
+
+
+{% block content_area %}
+
+{% block menu %}
+	block menu
+{% endblock menu %}
+
+
+{% endblock content_area %}

@@ -1,0 +1,228 @@
+// All menus
+.menus {
+	text-align: center;		
+}
+
+// Story, Theme, Special Features menus
+.menu-gallery {
+	
+	li {
+		font-style: italic;
+		margin-bottom: $base-spacing;
+		position: relative;
+
+  	img {
+  		border: $double-border;
+  		padding: 2px;
+  	}
+		
+		// menu blurb tool tips
+		p {
+		  @include fill-parent;
+		  background-color: $transparent-dark-taupe;
+		  border: $double-border;
+		  color: $light-font-color;
+			display: inline-block;
+			font-size: $small-font-size;
+			font-style: normal;
+	    left: 0;
+	    letter-spacing: .05em;
+		  padding: $small-spacing;
+		  position: absolute;
+		  text-align: center;
+	    top: 0;
+	    visibility: hidden;
+		  width: 100%;
+	    z-index: 1;
+		}
+	}
+
+	li:hover p {
+		visibility: visible;
+
+		@include media (max-width $large-screen) {
+	    visibility: hidden;
+	  }
+	}
+}
+
+.menu-title {
+	display: block;
+	font-style: normal;
+	font-variant: small-caps;
+}
+
+// for Stories
+.three-across li {
+	@include span-columns(4);
+	@include omega(3n);
+}
+
+// for Themes
+.four-across li {
+	@include span-columns(3);
+	@include omega(4n);
+}
+
+// for Special Features
+.six-across {
+	overflow: hidden;
+	@include media($large-screen) {
+		@include span-columns(2);
+	}
+
+	h3 {
+		padding: $small-spacing 0;
+	}
+
+	.menu-gallery li {
+		margin-bottom: $large-spacing;
+
+		// phone-portrait displays, less than or equal to 340em - 3 cols
+		@include media(max-width $very-small-screen) {
+			@include span-columns(4);
+			@include omega(3n);
+			font-size: $small-font-size;
+		}
+
+		// small displays, greater than or equal to 341em but less than or equal to 879em - 4 cols
+		@include media(min-width $very-small-screen +em(1) max-width $small-screen) {
+			@include span-columns(3);
+			@include omega(4n);
+			font-size: $smallish-font-size;
+		}
+
+		@media print {
+			@include span-columns(2 of 12);
+		  @include omega(6n);
+  	}
+	}
+}
+
+// for evidence and backdrops menu
+.menu-grid--area {
+	overflow: auto;
+	padding: $large-spacing $base-spacing;
+	// for small displays
+	width: 100%;
+
+	//for large displays (works with control-panel):
+	@include media($large-screen) {
+		@include span-columns(8);
+	}
+  
+  @media print {
+		@include span-columns(8);
+  }
+}
+
+.menu-grid {
+	@include outer-container;
+	margin-bottom: $large-spacing;
+
+	li {
+		font-size: $small-font-size;
+		line-height: $heading-line-height;
+		margin-bottom: $base-spacing;
+
+  	img {
+  		border: $double-border;
+  		margin-bottom: $tiny-spacing;
+  		padding: 2px;
+  	}
+  }
+}
+
+// for Backdrop and Evidence Menus
+.squares li {
+	// phone-portrait displays, less than or equal to 340em - 4 cols
+	@include media(max-width $very-small-screen) {
+		@include span-columns(3);
+		@include omega(4n);
+		font-size: $small-font-size;
+	}
+
+	// small displays, greater than or equal to 341em but less than or equal to 879em - 6 cols
+	@include media(min-width $very-small-screen +em(1) max-width $small-screen) {
+		@include span-columns(2);
+		@include omega(6n);
+	}
+
+	// large displays, greater than or equal to 880em - 8 cols
+  @include media($large-screen) {
+	  @include span-columns(1.5 of 8);
+	  @include omega(5n);
+	}
+
+  @media print {
+		@include span-columns(1.5 of 8);
+	  @include omega(5n);
+  }
+}
+
+img.oval {
+	border: $double-border;
+	border-radius: 50%;	
+	padding: 2px;
+}
+
+.people-primary, .people-secondary, .people-tertiary {
+  @include row();
+	margin: $base-spacing 0 $large-spacing 0;
+	
+	li {
+		margin-bottom: $small-spacing;
+
+		@media print {
+			@include span-columns(1.5 of 8);
+		  @include omega(5n);
+  	}
+	}
+}
+
+.people-primary  {
+  li {
+		// small displays - 3 cols
+  	@include media(max-width $small-screen) {
+			@include span-columns(4 of 12);
+			@include omega(3n);
+		}
+
+		// large displays - 5 cols
+	  @include media(min-width $large-screen) {
+			@include span-columns(2 of 12);
+			@include omega(5n);
+		}	
+	}
+
+	// large displays - center the cols
+  @include media(min-width $large-screen) {
+		@include shift(1.5);
+	}
+}
+
+.people-secondary li, .people-tertiary li {
+	// phone-portrait displays, less than or equal to 340em - 4 cols
+	@include media(max-width $very-small-screen) {
+		@include span-columns(3);
+		@include omega(4n);
+		font-size: $small-font-size;
+	}
+
+	// small displays, greater than or equal to 341em but less than or equal to 879em - 6 cols
+	@include media(min-width $very-small-screen +em(1) max-width $small-screen) {
+		@include span-columns(2);
+		@include omega(6n);
+	}
+
+	// large displays, greater than or equal to 880em - 8 cols
+  @include media($large-screen) {
+		@include span-columns(1.5);
+		@include omega(8n);
+	}
+}
+
+.people-tertiary {
+	overflow: auto;
+	text-align: left;
+}

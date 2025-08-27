@@ -1,0 +1,38 @@
+# extensions
+*.pyc
+*.log
+*.jpg
+*.png
+*.gif
+*.geojson
+
+# files
+.DS_Store
+secrets.json
+robots.txt
+.htaccess
+
+# directories
+.env-imp
+**/.sass-cache
+**/.sass-cache/*
+imp_static/
+imp_media/
+static/
+webstat/
+impressions/design/local_static_sym
+impressions/design/coming-soon/images
+impressions/local_static/images
+impressions/local_static/js/images
+impressions/local_static/js/map_assets/images
+impressions/local_static/js/map_assets/topojson
+impressions/local_static/js/Assets/Skins/Default/standard
+impressions/design/stories/images
+impressions/design/stories/expanding-world/images
+impressions/design/supporting/context/menupics
+impressions/design/supporting/context/fullpics
+impressions/design/supporting/evidence/menupics
+impressions/design/supporting/people/menupics
+impressions/design/supporting/special/media
+
+# allow

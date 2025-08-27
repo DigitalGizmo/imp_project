@@ -1,0 +1,123 @@
+// for evidence items
+#item-viewer {
+  position: relative;
+}
+
+#item-viewer--container {
+  border: $double-border;
+  padding: 1px;
+}
+
+#item-image {
+  background-color: $base-background-color;
+  height: em(400);
+}
+
+.evidence-left-col {
+  //for large displays:
+  @include media($large-screen) { 
+    @include span-columns (7);
+  }
+}
+
+.evidence-right-col {
+  //for large displays:
+  @include media($large-screen) { 
+    @include span-columns (5);
+  }
+}
+
+// for document transcriptions
+#document-text {
+  background-color: $base-background-color;
+  border: $double-border;
+  color: $dark-gray;
+  font-size: $smallish-font-size;
+  height: 100%;
+  width: 100%;
+  line-height: $base-line-height;
+  opacity: 0.80;
+  overflow: scroll;
+
+  @include position(absolute, 0px null null 0px );
+
+  p {
+  	opacity: 1.0;
+  }
+
+  table p {
+    margin: $tiny-spacing 0 $tiny-spacing 3px;
+  }
+}
+
+.document-text--transcription {
+	margin: $base-spacing;
+}
+
+// for document paging
+#document-paging {
+  margin: $small-spacing 0;  
+}
+
+#document-paging--list {
+  li {
+    display: inline;
+    padding: 2px;
+  }
+
+  li.document-paging--page::after {
+    content: " |"
+  }
+
+  li.last::after {
+    content: none;
+  }
+
+  a:link {
+    //padding: $tiny-spacing;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    background-color: $light-taupe;
+  }
+}
+
+.document-paging--title {
+  float: left;
+  margin: 2px 4px 0 em(1);
+}
+
+.document-paging--selected a {
+  background-color: transparentize($light-taupe, 0.5);
+}
+
+// transcription toggle button
+#toggle-transcription {
+  background-color: $light-taupe;
+  margin-top: $tiny-spacing;
+  font-size: $small-font-size;
+}
+
+// for curatorial info on evidence pages
+dl.slim-curatorial {
+  margin-bottom: $small-spacing;
+  font-size: $smallish-font-size;
+
+  dt {
+    float: left;
+    margin-right: 5%;
+    margin-top: 0;
+    max-width: 30%;
+  }
+  
+  dd {
+    margin-left: 35%;
+  }
+  
+  dd::after {
+    content: " ";
+    display: block;
+    clear: left;
+  }  
+}

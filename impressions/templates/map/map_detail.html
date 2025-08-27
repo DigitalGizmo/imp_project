@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Impressions - Map{% endblock %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{% static 'css/leaflet.css' %}" type="text/css"/>
+  {{ block.super }}
+
+{% endblock stylesheets %}
+
+{% block javascript %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'js/tangram.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/leaflet.js' %}"></script>
+  <!-- <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script> -->
+
+{% endblock javascript %}
+
+{% block wrapper_class %}"map-empty"{% endblock wrapper_class %}
+
+{% block content_area %}
+
+<div class="map-wrapper">
+  <section class="map-control-panel">
+    
+    <h2 class="heading">Show Maps</h2>
+
+    <p class="prompt">check the boxes below to show/hide maps.</p>
+
+    <form id="overlay_form" action="#">
+
+      <ul class="map-layers">
+        {% for overlay in object.overlay_list %} {# list will exclude the Glacier layer -- needs custom layout #}
+          <li>
+            <label for="id_{{ overlay.layer_index }}">
+              <input id="id_{{ overlay.layer_index }}" name="overlay" type="checkbox" value="{{ overlay.layer_index }}" /> {{ overlay.title|safe }}
+            </label>
+            <img src="{% static 'map/thumbpics/' %}{{ overlay.slug }}.jpg" alt="map layer thumbnail image">
+            <!-- {{ overlay.short_blurb|safe }} -->
+            <a class="pop_item" href="{% url 'map:about_detail' overlay.slug %}">about this map</a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <ul class="glacier-list">
+        <li class="heading">Glacier and Lake</li>
+        <li>
+          <label for="id_10">
+            <input id="id_10" name="lake" type="radio" value="0" /> Lake 15,600 BCE
+          </label>
+        </li>
+        <li>
+          <label for="id_11">
+            <input id="id_11" name="lake" type="radio" value="1" /> Lake 17,200 BCE
+          </label>
+        </li>
+        <li>
+          <label for="id_12">
+            <input id="id_12" name="lake" type="radio" value="2" /> Lake 17,900 BCE
+          </label>
+        </li>
+        <li>
+          <label for="id_13">
+            <input id="id_13" name="lake" type="radio" value="3" /> Lake 19,500 BCE
+          </label>
+        </li>
+
+        <li><a class="pop_item" href="{% url 'map:about_detail' 'glacier-lake' %}">about this map</a> | <a id="clear_lake" href="#">clear</a></li>
+
+      </ul>
+
+    </form>
+
+  </section>
+
+  <section class="map-area">
+    <div id="map">
+      
+    </div>
+    <script src="{% static 'js/map.js' %}" type="text/javascript"></script>
+  </section>
+</div><!--map-wrapper-->
+
+<section class="map-locations-panel">
+
+  <h2 class="heading">Show Markers</h2>
+    
+  <form id="loc_sets" action="#">
+    <ul class="map-locations">
+      {% for layer in object.layer_list %} 
+        <li>
+          <input type="radio" name="loc_set" value="{{ layer.slug }}">{{ layer.title|safe }}
+        </li>
+     {% endfor %}
+    </ul>
+    
+  </form>
+
+  <h2 class="heading">Links to Markers</h2>
+
+  <div id="site_list" class="map-scroll">
+    <p>Site list set in JavaScript</p>
+  </div>
+
+  <h2 class="heading">Dig Deeper</h2>
+
+  <div id="deeper_ajax_wrapper" class="map-scroll">
+    {% include 'map/_map_deeper.html' %}
+  </div>
+
+  <h3 class="heading"><a href="{% url 'map:map_intro' %}">Return to Introduction</a></h3>
+
+</section>
+
+<script type="text/javascript">
+  // set initial sites -- the first in list, should be "none"
+  setSiteLayer('{{ object.slug }}');
+</script>
+
+
+{% endblock content_area %}

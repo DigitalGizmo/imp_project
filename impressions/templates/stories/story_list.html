@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% load media_tags %}
+
+{% block title %}Impressions - Stories{% endblock %}
+
+{% block wrapper_class %}"content-wrapper menus"{% endblock wrapper_class %}
+
+{% block content_area %}
+
+  <h1 class="main-title">Stories</h1>
+
+  <p>These stories tell about the discovery of the dinosaur footprints and about the lives of the discoverers.</p>
+
+  <ul class="menu-gallery three-across">
+  {% for object in object_list %}
+    <li>
+      <a href="{% url 'stories:story_detail' object.slug %}">
+        <img src="{% story_image object.slug %}" alt="story illustration">
+        <span class="menu-title">{{ object.title|safe }}</span>{{ object.subtitle|safe }}
+        {{ object.menu_blurb|safe }}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>  
+
+
+{% endblock content_area %}

@@ -1,0 +1,51 @@
+//side panel layout for text, works with _image-panel.scss
+.text-panel {
+	color: $light-font-color;
+	font-size: $smallish-font-size;
+	padding: $base-spacing;
+	// for small displays
+	width: 100%;
+
+	//for large displays:
+  @include media($large-screen) {
+		@include span-columns(4);
+		padding: $tiny-spacing $base-spacing 0 0;
+	}
+
+	a:link, a:visited {
+		color: transparentize($light-font-color, 0.4);
+	}
+	
+	a:hover {
+		color: $light-font-color;
+		text-decoration: underline;
+	}
+}
+
+// for Evidence and Backdrops Menus
+.control-panel {
+	color: $accent-color;
+	padding: $base-spacing;
+	// for small displays
+	width: 100%;
+
+	//for large displays:
+  @include media($large-screen) {
+		@include span-columns(4);
+		padding-bottom: $xlarge-spacing;
+	}
+
+  @media print {
+		@include span-columns(4);
+  }   
+
+	ul {
+		margin-bottom: $base-spacing;
+
+		li {
+			font-size: $smallish-font-size;
+			font-weight: normal;
+		}
+	}
+}
+

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Impressions From a Lost World - error message{% endblock %}
+
+{% block wrapper_class %}"content-wrapper menus"{% endblock wrapper_class %}
+
+{% block content_area %}
+
+  <header>
+    <h1 class="hm-title">Impressions from a Lost World</h1>
+  </header>
+
+	<div class="error-msg">
+		{% block error_msg %}
+			[error msg here]
+		{% endblock error_msg %}
+	</div>
+	
+{% endblock content_area %}

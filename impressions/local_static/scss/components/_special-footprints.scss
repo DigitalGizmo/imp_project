@@ -1,0 +1,37 @@
+//for find the footprints
+.footprint {
+  stroke: #ffff00;
+  stroke-opacity: 0;
+  fill: #ffff00;
+  fill-opacity: 0;
+}
+
+.footprint_correct {
+  stroke: #ffff00;
+  stroke-opacity: 1;
+  fill: #ffff00;
+  fill-opacity: 0.25;
+}
+
+// for svg highlights
+.hotspot {
+  stroke: #ffff00;
+  stroke-opacity: 0;
+  fill: #ffff00;
+  fill-opacity: 0;
+}
+
+.hotspot_correct {
+  stroke: #ffff00;
+  stroke-opacity: 1;
+  fill: #ffff00;
+  fill-opacity: 0.25;
+}
+
+.hidden {
+  display: none;
+}
+
+.unhidden {
+  display: block;
+}

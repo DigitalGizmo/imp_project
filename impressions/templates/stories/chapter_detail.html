@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Impressions - Story: {{object.title }}{% endblock %}
+
+<!-- possibly migrate the following to a common story template -->
+{% block wrapper_class %}"content-wrapper"{% endblock wrapper_class %}
+
+{% block content_area %}
+
+  <header>
+    
+    <h4 class="heading"><a href="{% url 'stories:story_detail' object.slug %}">{{ object.title|safe }}</a></h4>  
+    <h2 class="main-title">Chapter {{ chapter.chapter_num }}: {{ chapter.title|safe }}</h2> 
+
+    <nav>
+      <ul class="chapter-nav heading">
+
+          {% if chapter.get_prev %}
+            <li><a href="{% url 'stories:chapter_detail' object.slug chapter.get_prev.chapter_num %}"> 
+              &#8826; Previous</a></li>
+          {% else %}
+            <li>&#8826; Previous</li>
+          {% endif %}
+          <li>&diams;</li>
+          <li class="chapter-nav--dropdown"><a href="#">Chapters &#8910;</a>
+
+            <ol class="chapter-subnav">
+            {% for nav_chapter in object.chapter_list %}
+              <li><a href="{% url 'stories:chapter_detail' object.slug nav_chapter.chapter_num %}">
+              {{ nav_chapter.chapter_num }}. {{ nav_chapter.title|safe }}</a></li>
+            {% endfor %}  
+            </ol>
+
+          </li>
+          <li>&diams;</li>
+          {% if chapter.get_next %}
+            <li><a href="{% url 'stories:chapter_detail' object.slug chapter.get_next.chapter_num %}">Next &#8827;</a></li>
+          {% else %}
+            Next &#8827;
+          {% endif %}
+      </ul>
+    </nav>
+
+  </header>
+
+  <section class="chapter{% if chapter.is_vertical %}-vertical{% endif %}">
+    <div class="chapter-image{% if chapter.is_vertical %}-vertical{% endif %}">
+
+    {% if chapter.has_include %}
+      {% include chapter.include_path %}
+    {% else %}
+        <img src="{{ MEDIA_URL }}stories/{{ object.slug }}/{{ chapter.image_name }}.jpg" alt="chapter illustration">
+    {% endif %}
+
+    <p class="caption">{{ chapter.caption|safe }}
+      {% if chapter.source.id != 1 %}
+        Image courtesy of {{ chapter.source.institution|safe }}.
+      {% endif %}
+    </p>
+
+    </div><!--/chapter-image -->
+
+    {{ chapter.narrative|safe }}
+
+    {% if chapter.get_next %}
+      <p><a href="{% url 'stories:chapter_detail' object.slug chapter.get_next.chapter_num %}">Next chapter: <em>{{ chapter.get_next.title|safe }}</em></a></p>
+    {% endif %}
+
+  </section><!--/chapter -->
+
+  <section class="dig-deeper">
+    
+    <h2>Dig Deeper</h2>
+
+    <ul class="dig-deeper-list">
+
+      {% for feature in chapter.featured_specials.all %}
+        <li>
+          <a class="pop_item" href="{% url 'special:'|add:feature.special_type|add:'_detail' feature.slug %}">
+          <img src="{% static 'special/menupics/' %}{{ feature.slug }}.jpg" alt="image of {{ feature.slug }}">
+            {{ feature.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+      
+      {% for person in chapter.people.all %}
+        <li>
+          <a class="pop_item" href="{% url 'supporting:person_detail' person.slug %}">
+          <img src="{{ MEDIA_URL }}supporting/person/menupics/{{ person.slug }}.jpg" alt="image of {{ person.slug}}" class="oval">
+            {{ person.first_name }} {{ person.middle_name }} {{ person.last_name }}
+          </a>
+        </li>
+      {% endfor %}
+
+      {% for evidenceitem in chapter.evidence.all %}
+        <li>
+          <a class="pop_item" href="{% url 'supporting:'|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">
+          <img src="{{ MEDIA_URL }}supporting/evidenceitem/menupics/{{ evidenceitem.slug }}.jpg" alt="image of {{ evidenceitem.slug }}">
+            {{ evidenceitem.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+      
+      {% for context in chapter.contexts.all %}
+        <li>
+          <a class="pop_item" href="{% url 'supporting:context_detail' context.slug %}">
+          <img src="{% static 'supporting/context/menupics/' %}{{ context.slug }}.jpg" alt="image of {{ context.slug }}">
+            {{ context.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+
+    </ul>
+  
+  </section><!--/dig-deeper -->
+
+   
+
+{% endblock content_area %}

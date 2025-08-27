@@ -1,0 +1,15 @@
+// content wrapper
+
+.content-wrapper { 
+	@include outer-container;
+	padding: $small-spacing $base-spacing $xlarge-spacing $base-spacing;
+}
+
+.content-wrapper--intro {
+	background-color: $dark-taupe;
+
+	//for large displays:
+  @include media($large-screen) {	
+		overflow: auto;
+ 	}
+}
