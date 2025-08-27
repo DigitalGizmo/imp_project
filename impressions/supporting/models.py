@@ -222,7 +222,7 @@ class FastFact(CommonSupportingModel):
 
     def image_img(self):
         if self.has_image:
-            return format_html('<img src="/static/supporting/fastfact/menupics/' + self.slug + \
+            return format_html('<img src="/media/supporting/fastfact/menupics/' + self.slug + \
                             '.jpg" width="100" height="75"/>')
         else:
             return '(text-only)'

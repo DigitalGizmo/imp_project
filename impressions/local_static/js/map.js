@@ -53,7 +53,7 @@ $(document).ready(function(){
 	];
 
 	// ----- define map overlays ----- 
-	var hitchcock1857   = L.tileLayer('/static/map/tiles/hitchcock1857/{z}/{x}/{y}.png', {
+	var hitchcock1857   = L.tileLayer('/media/map/tiles/hitchcock1857/{z}/{x}/{y}.png', {
 		attribution: 'Hitchcock map',
 		// bounds: mybounds, //tempbounds
 		minZoom: 9,
@@ -61,7 +61,7 @@ $(document).ready(function(){
 		//opacity: .7,
         tms: true
 	}),
-	hitchcock1834   = L.tileLayer('/static/map/tiles/hitchcock1834/{z}/{x}/{y}.png', {
+	hitchcock1834   = L.tileLayer('/media/map/tiles/hitchcock1834/{z}/{x}/{y}.png', {
 		attribution: 'Hitchcock map',
 		// bounds: mybounds, //tempbounds
 		minZoom: 9,
@@ -240,7 +240,8 @@ function switchLake(lakeIndex) { //  layerShortName,
 			// console.log(" ----- got to null for this layer");
 			// need to get promise for geoJson - use when success is returned
 			// var geoPromise = getGeoJson("/static/js/map_assets/json_1950.geojson");
-			var geoPromise = getGeoJson("/static/js/map_assets/" + 
+			// var geoPromise = getGeoJson("/static/js/map_assets/" + 
+			var geoPromise = getGeoJson("/media/map/lake/" + 
 				lakeLayerNames[lakeIndex] + ".geojson");
 
 			// on successful return of geoJson
@@ -372,7 +373,7 @@ function setSites(siteListJson, layerShortName) {
 		// create HTML for popup
 		var popHtml = "<p><strong>" + siteListJson[i].title + "</strong> </p>" + 
 			// don't know why, but src attribute needs to not be quoted
-			"<img src=/static/supporting/place/menupics/" + 
+			"<img src=/media/supporting/place/menupics/" + 
 				siteListJson[i].slug  + ".jpg>" + siteListJson[i].map_blurb;
 		// create marker, with popHtml
 		// console.log(" --- siteListJson[i].latitude: " + siteListJson[i].latitude);	
