@@ -10,7 +10,7 @@
 
 {% block slim_content%}
 
-	<img class="map-image" src="{% static 'map/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}">
+	<img class="map-image" src="{{ MEDIA_URL }}map/fullpics/{{ object.slug }}.jpg"  alt="image of {{ object.slug}}">
 
 {{ object.map_blurb|safe }}
 

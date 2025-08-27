@@ -78,7 +78,7 @@
       {% for feature in chapter.featured_specials.all %}
         <li>
           <a class="pop_item" href="{% url 'special:'|add:feature.special_type|add:'_detail' feature.slug %}">
-          <img src="{% static 'special/menupics/' %}{{ feature.slug }}.jpg" alt="image of {{ feature.slug }}">
+          <img src="{{ MEDIA_URL }}special/menupics/{{ feature.slug }}.jpg" alt="image of {{ feature.slug }}">
             {{ feature.title|safe }}
           </a>
         </li>
@@ -105,7 +105,7 @@
       {% for context in chapter.contexts.all %}
         <li>
           <a class="pop_item" href="{% url 'supporting:context_detail' context.slug %}">
-          <img src="{% static 'supporting/context/menupics/' %}{{ context.slug }}.jpg" alt="image of {{ context.slug }}">
+          <img src="{{ MEDIA_URL }}supporting/context/menupics/{{ context.slug }}.jpg" alt="image of {{ context.slug }}">
             {{ context.title|safe }}
           </a>
         </li>

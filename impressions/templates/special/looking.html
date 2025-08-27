@@ -11,11 +11,11 @@
   
   <!-- from Cod Rops -->
   {# using img_width field for audio total run time. #}
-  <div class="audio-slideshow" data-audio="{% static 'special/looking/media/' %}{{ object.slug }}.m4a" data-audio-duration="{{ object.img_width }}">
+  <div class="audio-slideshow" data-audio="{{ MEDIA_URL }}special/looking/media/{{ object.slug }}.m4a" data-audio-duration="{{ object.img_width }}">
     
     <div class="audio-slides">
     {% for slide in object.frame_set.all %}
-      <img src="{% static 'special/looking/fullpics/' %}{{ slide.image_name }}.jpg" data-thumbnail="{% static 'special/looking/thumbpics/' %}{{ slide.image_name }}.jpg" data-slide-time="{{ slide.num_correct }}">
+      <img src="{{ MEDIA_URL }}special/looking/fullpics/{{ slide.image_name }}.jpg" data-thumbnail="{{ MEDIA_URL }}special/looking/thumbpics/{{ slide.image_name }}.jpg" data-slide-time="{{ slide.num_correct }}">
 
     {% endfor %}
     </div><!-- /audio-slides -->

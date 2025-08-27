@@ -9,7 +9,7 @@
   {# shared with swap_fullpop ajax #}
   {# include 'special/slim_content_includes/_society.html' #}
 
-	<img src="{% static 'special/society/fullpics/' %}{{ slide.image_name }}.jpg" class="double-border">
+	<img src="{{ MEDIA_URL }}special/society/fullpics/{{ slide.image_name }}.jpg" class="double-border">
 
 	{% block optional_intro %}
 	  {% if error_msg %}
