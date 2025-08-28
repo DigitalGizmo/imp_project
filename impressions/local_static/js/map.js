@@ -73,7 +73,7 @@ $(document).ready(function(){
     // are defined in scene.yaml file
     roads = Tangram.leafletLayer({
         // scene: '/static/js/map_assets/cinnabar-style.yaml',
-        scene: '/static/js/map_assets/roads.yaml',
+        scene: '/media/map/roads.yaml',
         // scene: '/static/js/map_assets/scene.yaml',
         attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> '
         + '| &copy; OSM contributors | <a href="https://mapzen.com/" '

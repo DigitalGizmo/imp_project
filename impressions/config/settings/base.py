@@ -130,7 +130,7 @@ USE_TZ = False
 # STATIC_ROOT = os.path.join( SITE_ROOT, '../static')
 
 # Static files (CSS, JavaScript, Images)
-STATIC_ROOT = BASE_DIR / "imp_static"
+STATIC_ROOT = BASE_DIR.parent / "imp_static"
 
 STATIC_URL = '/static/'
 
