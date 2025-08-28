@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.html import format_html
-from core.models import ContentType, CommonModel, AssociationMixin, Source
+from impressions.core.models import ContentType, CommonModel, AssociationMixin, Source
 
 class CommonSupportingModel(CommonModel):
     STATUS_NUMS = (

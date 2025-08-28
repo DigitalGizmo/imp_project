@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView
 from django.conf import settings
-from supporting.models import Person, Context, EvidenceItem
-from special.models import Feature
-from stories.models import Story
-from themes.models import Theme
+from impressions.supporting.models import Person, Context, EvidenceItem
+from impressions.special.models import Feature
+from impressions.stories.models import Story
+from impressions.themes.models import Theme
 
 class HomeTemplateView(TemplateView):
     # template_name = 'index.html' 
