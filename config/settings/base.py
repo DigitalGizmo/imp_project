@@ -101,7 +101,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'impdb',
         'USER': 'impdb_user',
-        'PASSWORD': 'Orra$1821',
+        'PASSWORD': get_secret("DB_PASS"),
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }

@@ -1,6 +1,10 @@
 Readme for Impressions
 =======================
 
+Database
+- Bland password locallly
+- Need to post settings/secrets.json by hand for remote password as it's not in git
+
 Misc.
 -----
 
