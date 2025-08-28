@@ -62,13 +62,13 @@ ALLOWED_HOSTS = ['dinotracksdiscovery.org', 'www.dinotracksdiscovery.org',
 # Apps are now in impressions/ subdirectory
 INSTALLED_APPS = (
     # 'django.contrib.sites',
-    'ancillary.apps.AncillaryConfig',
-    'core.apps.CoreConfig',
-    'map.apps.MapConfig',
-    'special.apps.SpecialConfig',
-    'stories.apps.StoriesConfig',
-    'supporting.apps.SupportingConfig',
-    'themes.apps.ThemesConfig',
+    'impressions.ancillary.apps.AncillaryConfig',
+    'impressions.core.apps.CoreConfig',
+    'impressions.map.apps.MapConfig',
+    'impressions.special.apps.SpecialConfig',
+    'impressions.stories.apps.StoriesConfig',
+    'impressions.supporting.apps.SupportingConfig',
+    'impressions.themes.apps.ThemesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,7 +122,7 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # STATIC_ROOT is where collectstatic puts files (outside project for deployment)
-STATIC_ROOT = BASE_DIR.parent / "imp_static"
+STATIC_ROOT = BASE_DIR / "imp_static"
 
 STATIC_URL = '/static/'
 
@@ -132,7 +132,7 @@ STATICFILES_DIRS = (
 )
 
 # Media files (content images)
-MEDIA_ROOT = BASE_DIR.parent / "imp_media"
+MEDIA_ROOT = BASE_DIR / "imp_media"
 MEDIA_URL = '/media/'
 
 # Project specific constants

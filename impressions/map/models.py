@@ -1,5 +1,5 @@
 from django.db import models
-from impressions.core.models import AssociationMixin
+from core.models import AssociationMixin
 from django.apps import apps
 from django.core.exceptions import ObjectDoesNotExist
 import json
