@@ -1,11 +1,12 @@
 # gunicorn.conf.py
+# gunicorn.conf.py
 import multiprocessing
 
-# Server socket - use a different socket name
+# Server socket
 bind = "unix:/run/gunicorn-impressions.sock"
 
 # Worker processes
-workers = multiprocessing.cpu_count() * 2 + 1
+workers = 3  # or keep multiprocessing.cpu_count() * 2 + 1
 worker_class = "sync"
 worker_connections = 1000
 timeout = 30
@@ -23,7 +24,7 @@ accesslog = "-"  # stdout
 errorlog = "-"   # stderr
 
 # Process naming
-proc_name = "secondapp"
+proc_name = "gunicorn-impressions"
 
 # Server mechanics
 daemon = False
