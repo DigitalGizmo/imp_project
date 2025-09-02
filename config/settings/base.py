@@ -56,7 +56,7 @@ TEMPLATES = [
 ]
 
 ALLOWED_HOSTS = ['dinotracksdiscovery.org', 'www.dinotracksdiscovery.org', 
-    'dev.dinotracksdiscovery.org', 'impdev.deerfield-ma.org', '127.0.0.1']
+    'dev.dinotracksdiscovery.org', 'temp.dinotracksdiscovery.org', '127.0.0.1']
 
 # Application definition
 # Apps are now in impressions/ subdirectory
