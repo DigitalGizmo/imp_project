@@ -5,13 +5,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     # url('admin/', admin.site.urls),
-    path('ancillary/', include('ancillary.urls', namespace='ancillary')),
-    path('', include('core.urls', namespace='core')),
-    path('map/', include('map.urls', namespace='map')),
-    path('special/', include('special.urls', namespace='special')),
-    path('stories/', include('stories.urls', namespace='stories')),
-    path('supporting/', include('supporting.urls', namespace='supporting')),
-    path('themes/', include('themes.urls', namespace='themes')),
+    path('ancillary/', include('impressions.ancillary.urls', namespace='ancillary')),
+    path('', include('impressions.core.urls', namespace='core')),
+    path('map/', include('impressions.map.urls', namespace='map')),
+    path('special/', include('impressions.special.urls', namespace='special')),
+    path('stories/', include('impressions.stories.urls', namespace='stories')),
+    path('supporting/', include('impressions.supporting.urls', namespace='supporting')),
+    path('themes/', include('impressions.themes.urls', namespace='themes')),
     path('admin/', admin.site.urls),
 ]
 

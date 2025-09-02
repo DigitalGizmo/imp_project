@@ -6,7 +6,7 @@ from django.views.generic.edit import FormMixin
 from django.db.models import Q
 from .models import Context, EvidenceItem, FastFact, Person, Page
 from .forms import EvidenceItemSearchForm, ContextSearchForm
-from core.views import MobileFullMixin
+from impressions.core.views import MobileFullMixin
 
 class ContextListView(FormMixin, ListView):
     """

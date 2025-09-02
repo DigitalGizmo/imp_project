@@ -1,5 +1,5 @@
 from django.db import models
-from core.models import ContentType, CommonModel, AssociationMixin, Source
+from impressions.core.models import ContentType, CommonModel, AssociationMixin, Source
 
 class Story(CommonModel):
     STATUS_NUMS = (

@@ -1,8 +1,8 @@
 from django.db import models
 from django.utils.html import format_html
 from django.conf import settings
-from core.models import AssociationMixin, Source # ContentType
-from supporting.models import CommonSupportingModel
+from impressions.core.models import AssociationMixin, Source # ContentType
+from impressions.supporting.models import CommonSupportingModel
 
 class Feature(CommonSupportingModel):
     """

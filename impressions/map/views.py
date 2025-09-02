@@ -4,7 +4,7 @@ from django.http import JsonResponse, HttpResponse
 # import json
 from django.core import serializers
 from .models import Layer, Overlay
-from core.views import MobileFullMixin
+from impressions.core.views import MobileFullMixin
 
 # class MapListView(ListView):
 #     model = Layer

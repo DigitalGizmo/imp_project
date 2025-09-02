@@ -1,8 +1,8 @@
 from django.db import models
-from core.models import AssociationMixin
 from django.apps import apps
 from django.core.exceptions import ObjectDoesNotExist
 import json
+from impressions.core.models import AssociationMixin
 # from django.core import serializers
 # from django.http import JsonResponse
 

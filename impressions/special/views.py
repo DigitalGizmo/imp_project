@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.conf import settings
 from .models import Feature, Frame
-from core.views import MobileFullMixin
+from impressions.core.views import MobileFullMixin
 
 
 class FeatureListView(ListView):
