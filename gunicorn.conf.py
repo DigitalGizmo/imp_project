@@ -2,7 +2,7 @@
 import multiprocessing
 
 # Server socket - use a different socket name
-bind = "unix:/run/gunicorn-secondapp.sock"
+bind = "unix:/run/gunicorn-impressions.sock"
 
 # Worker processes
 workers = multiprocessing.cpu_count() * 2 + 1
