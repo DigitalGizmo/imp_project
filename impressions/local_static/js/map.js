@@ -104,7 +104,7 @@ $(document).ready(function(){
 	// 	subdomains: 'abcd',
 
   // New Stadia Maps format:
-	var stamen = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}.png', {
+	var stamen = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain_background/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
 		subdomains: 'abcd',
 		// bounds: mybounds,
