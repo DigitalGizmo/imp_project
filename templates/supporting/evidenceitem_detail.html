@@ -70,7 +70,8 @@
   }
 
   // Define the zoom path
-  var zoomPath = "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.evidence_type.is_document_oriented %}-{{ page.page_suffix}}{% endif %}.zif";
+  var zoomPath = "{{ MEDIA_URL }}supporting/evidenceitem/zooms/{{ object.slug }}{% if object.evidence_type.is_document_oriented %}-{{ page.page_suffix}}{% endif %}.zif";
+
   console.log(" -- in template - zoom path: " + zoomPath);
 
   // Initialize Zoomify directly - it should handle the ZIF file automatically
