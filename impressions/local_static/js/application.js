@@ -183,50 +183,47 @@ $(document).ready(function(){
   });
 
   // ------- Docment paging ------
-
-// In application.js, update the page click handler:
-
-$('.item_page').click(function(event){
+  $(document).on("click", ".item_page", function(event){
     event.preventDefault();
-    var theURL = $(this).attr('href');
     
+    // Highlight current selection
+    $("#document-paging--list li").removeClass('document-paging--selected');
+    $(event.target).parent().addClass('document-paging--selected'); 
+    
+    // Get params from href
+    var theURL = $(event.target).attr('href');
+    
+    // Parse the URL: /supporting/evidence/slug/page_suffix/
     var href_split = theURL.split('/');  
-    var link_type = href_split[2];
+    var link_type = href_split[2];  // "evidence" or "artifact"
     var slug = href_split[3];
     var page_suffix = href_split[4];
     
-    console.log(" -- href_split length: " + href_split.length);
-
-    // Build zoom path - using static since ZIF files are there now
-    var zoomPath = "/static/supporting/evidenceitem/zooms/" + slug;
+    console.log("Page click - URL: " + theURL);
+    console.log("Link type: " + link_type + ", Slug: " + slug + ", Page: " + page_suffix);
+    
+    // Build zoom path using MEDIA_URL since that's where your ZIF files are
+    var zoomPath = "/media/supporting/evidenceitem/zooms/" + slug;
     
     // Add suffix for document pages (but not artifact primary view)
-    if(link_type != "artifact") {
-      zoomPath += "-" + page_suffix;
-      // Call ajax for new page text
-      getURL(theURL, $('#document-text'));
+    if(link_type !== "artifact" && page_suffix) {
+        zoomPath += "-" + page_suffix;
+        // Call ajax for new page text
+        getURL(theURL, $('#document-text'));
     }
     
     // Add .zif extension
     zoomPath += ".zif";
     
-    console.log(" in app js -- zoom path: " + zoomPath);
-
-    // Check if the file exists before trying to set it
-    fetch(zoomPath, { method: 'HEAD' })
-      .then(response => {
-        if (response.ok) {
-          Z.Viewer.setImagePath(zoomPath);
-        } else {
-          console.error("Cannot access ZIF file for page change:", zoomPath);
-        }
-      })
-      .catch(error => {
-        // Try anyway in case HEAD requests are blocked
+    console.log("Zoom path: " + zoomPath);
+    
+    // Update the Zoomify viewer
+    if (typeof Z !== 'undefined' && Z.Viewer) {
         Z.Viewer.setImagePath(zoomPath);
-      });
-});
-
+    } else {
+        console.error("Zoomify viewer not available");
+    }
+  });
 
   // ------- SEARCH ------
 

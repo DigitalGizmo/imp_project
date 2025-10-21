@@ -58,8 +58,6 @@
   })();
 </script>
 
-
-
 <script type="text/javascript">
   // Test for IE 11 and provide work-around hard-coded dimensions 
   var isIE11 = !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv[ :]11/));
@@ -68,12 +66,10 @@
     $itempage.css('width', '400px');
     $itempage.css('height', '400px');
   }
-
   // Define the zoom path
+  // console.log('- is_document_oriented: ' + "{{object.evidence_type.is_document_oriented}}");
   var zoomPath = "{{ MEDIA_URL }}supporting/evidenceitem/zooms/{{ object.slug }}{% if object.evidence_type.is_document_oriented %}-{{ page.page_suffix}}{% endif %}.zif";
-
   console.log(" -- in template - zoom path: " + zoomPath);
-
   // Initialize Zoomify directly - it should handle the ZIF file automatically
   // since it detects the .zif extension
   try {
